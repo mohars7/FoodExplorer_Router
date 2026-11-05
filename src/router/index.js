@@ -9,6 +9,7 @@ const router = createRouter({
   routes: [
     { path: '/', name: 'home', component: Home },
     { path: '/recipes', name: 'recipes', component: Recipes },
+    { path: '/recipes/5', redirect: '/no-existe' },
     { path: '/recipes/:id', name: 'recipe-detail', component: RecipeDetail },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFound }
   ]
