@@ -1,36 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Frameworks from '../views/Frameworks.vue'
-import FrameworkDetails from '../views/FrameworkDetails.vue'
-import FrameworkVersions from '../views/FrameworkVersions.vue'
+import Recipes from '../views/Recipes.vue'
+import RecipeDetail from '../views/RecipeDetail.vue'
+import NotFound from '../views/NotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    { 
-      path: '/', 
-      name: 'home', 
-      component: Home 
-    },
-    { 
-      path: '/frameworks', 
-      name: 'frameworks', 
-      component: Frameworks,
-      children: [
-        {
-          path: ':id',
-          name: 'framework-details',
-          component: FrameworkDetails,
-          children: [
-            {
-              path: 'versions',
-              name: 'framework-versions-info',
-              component: FrameworkVersions
-            }
-          ]
-        }
-      ]
-    }
+    { path: '/', name: 'home', component: Home },
+    { path: '/recipes', name: 'recipes', component: Recipes },
+    { path: '/recipes/:id', name: 'recipe-detail', component: RecipeDetail },
+    { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFound }
   ]
 })
 
